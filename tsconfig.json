@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "alwaysStrict": true,
+    "baseUrl": ".",
+    "jsx": "react",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "paths": {
+      "assets": ["assets/*"],
+      "src": ["src/*"]
+    },
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "target": "es6"
+  },
+  "include": ["assets/**/*", "src/**/*"]
+}

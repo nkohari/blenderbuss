@@ -1,0 +1,53 @@
+{
+  "x9v6cwf3uu9": {
+    "id": "x9v6cwf3uu9",
+    "name": "Strawberry Surprise",
+    "imageUrl": "https://images.pexels.com/photos/70746/strawberries-red-fruit-royalty-free-70746.jpeg",
+    "ingredients": [
+      {
+        "name": "strawberries",
+        "unit": "cup",
+        "quantity": 1
+      },
+      {
+        "name": "peanut butter",
+        "unit": "tbsp",
+        "quantity": 1
+      }
+    ]
+  },
+  "x9v6cwf3uu7": {
+    "id": "x9v6cwf3uu7",
+    "name": "Strawberry Surprise",
+    "imageUrl": "https://images.pexels.com/photos/70746/strawberries-red-fruit-royalty-free-70746.jpeg",
+    "ingredients": [
+      {
+        "name": "strawberries",
+        "unit": "cup",
+        "quantity": 1
+      },
+      {
+        "name": "peanut butter",
+        "unit": "tbsp",
+        "quantity": 1
+      }
+    ]
+  },
+  "x9v6cwf3uu8": {
+    "id": "x9v6cwf3uu8",
+    "name": "Strawberry Surprise",
+    "imageUrl": "https://images.pexels.com/photos/70746/strawberries-red-fruit-royalty-free-70746.jpeg",
+    "ingredients": [
+      {
+        "name": "strawberries",
+        "unit": "cup",
+        "quantity": 1
+      },
+      {
+        "name": "peanut butter",
+        "unit": "tbsp",
+        "quantity": 1
+      }
+    ]
+  }
+}

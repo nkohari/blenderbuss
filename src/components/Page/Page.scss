@@ -1,0 +1,40 @@
+@import 'src/_theme.scss';
+
+.page {
+  display: flex;
+  max-width: 1000px;
+  height: 100%;
+
+  .gutter {
+    width: 80px;
+    flex: none;
+    display: flex;
+    justify-content: center;
+  }
+
+  .content {
+    height: 100%;
+    width: 100%;
+    padding: 40px;
+    background: $color-white;
+    box-shadow: 0 0 0 1px rgba(black, 0.15), 0 4px 8px rgba(black, 0.15), 0 18px 46px 6px rgba(black, 0.15);
+    overflow: auto;
+  }
+
+  header {
+    h1 {
+      display: flex;
+      align-items: center;
+    }
+
+    .icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    .icon,
+    .spinner {
+      margin-right: 10px;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+.ingredient-list-item {
+  .content {
+    width: 100%;
+    display: flex;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .quantity {
+    padding: 10px;
+    width: 30px;
+  }
+
+  .unit {
+    padding: 10px;
+    width: 50px;
+  }
+
+  .name {
+    padding: 10px;
+    flex: 1;
+  }
+}

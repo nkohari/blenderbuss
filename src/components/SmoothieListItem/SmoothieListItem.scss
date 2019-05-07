@@ -1,0 +1,42 @@
+@import 'src/_theme.scss';
+
+.smoothie-list-item {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  margin: 0 10px 10px 0;
+
+  .content {
+    z-index: 2;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-decoration: none;
+    background: linear-gradient(rgba(#000, 0), rgba(#000, 0) 50%, rgba(#000, 0.6));
+
+    .text {
+      display: flex;
+      align-items: center;
+      color: $color-white;
+      font-weight: $font-weight-heavy;
+      height: 40px;
+      padding-left: 10px;
+    }
+  }
+
+  .backdrop {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+  }
+}

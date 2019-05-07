@@ -1,0 +1,16 @@
+.layout {
+  display: flex;
+  flex-direction: column-reverse;
+
+  & > * {
+    margin-right: 20px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  @media (min-width: 800px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
