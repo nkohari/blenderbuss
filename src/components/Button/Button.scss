@@ -1,0 +1,21 @@
+@import 'src/_theme.scss';
+
+.button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 1em;
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: 1px solid $color-lightgray;
+  background-color: $color-verylightgray;
+  transition: border 250ms ease;
+
+  &:hover {
+    border-color: $color-lightgray;
+  }
+
+  .icon {
+    margin-right: 6px;
+  }
+}

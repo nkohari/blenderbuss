@@ -1,30 +1,96 @@
 import * as React from 'react';
-import { useState } from 'react';
-import posed from 'react-pose';
+import { useEffect, useRef, useState } from 'react';
+import { Icon } from 'src/components';
 import { Ingredient } from 'src/data';
+import * as styles from './IngredientEditor.scss';
 
 interface IngredientEditorProps {
   ingredient: Ingredient;
-  onSave: (ingredient: Ingredient) => any;
+  onCancel: () => any;
+  onChange: (ingredient: Ingredient) => any;
+  onRemove: () => any;
 }
 
-const Field = posed.input({
-  normal: { outline: 'none' },
-  error: { outline: '3px solid #f00' },
-});
-
 const IngredientEditor = (props: IngredientEditorProps) => {
-  const [quantity, setQuantity] = useState<string>(String(props.ingredient.quantity));
-  const [unit, setUnit] = useState<string>(props.ingredient.unit);
-  const [name, setName] = useState<string>(props.ingredient.name);
+  const quantityRef = useRef<HTMLInputElement>();
+  const [values, setValues] = useState<Ingredient>({ ...props.ingredient });
 
-  const handleChange = (setter: (value: string) => any) => (event: React.FormEvent<HTMLInputElement>) =>
-    setter(event.currentTarget.value);
+  useEffect(() => {
+    const input = quantityRef.current;
+    input.focus();
+    input.select();
+  }, []);
+
+  const handleChange = (event: React.FormEvent<HTMLInputElement>) => {
+    const { name, value } = event.currentTarget;
+    setValues({ ...values, [name]: value });
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.keyCode === 13) {
+      props.onChange(values);
+    } else if (event.keyCode === 27) {
+      props.onCancel();
+    }
+  };
+
+  const handleCancel = (event: React.MouseEvent) => {
+    props.onCancel();
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement> | React.MouseEvent) => {
+    event.preventDefault();
+    if (Number(values.quantity) === 0) {
+      props.onRemove();
+    } else {
+      props.onChange(values);
+    }
+  };
+
+  const handleRemove = (event: React.MouseEvent) => {
+    event.preventDefault();
+    props.onRemove();
+  };
 
   return (
-    <div>
-      <Field type="number" value={quantity} onChange={handleChange(setQuantity)} />
-    </div>
+    <form className={styles.ingredientEditor} onSubmit={handleSubmit}>
+      <input
+        ref={quantityRef}
+        type="number"
+        name="quantity"
+        value={values.quantity}
+        placeholder="qty"
+        onChange={handleChange}
+        onKeyDown={handleKeyDown}
+      />
+      <input
+        type="text"
+        name="unit"
+        value={values.unit}
+        placeholder="unit"
+        onChange={handleChange}
+        onKeyDown={handleKeyDown}
+      />
+      <input
+        type="text"
+        name="name"
+        value={values.name}
+        placeholder="ingredient"
+        onChange={handleChange}
+        onKeyDown={handleKeyDown}
+      />
+      <div className={styles.actions}>
+        <a tabIndex={0} onClick={handleSubmit} title="Save">
+          <Icon name="save" />
+        </a>
+        <a tabIndex={0} onClick={handleCancel} title="Cancel">
+          <Icon name="cancel" />
+        </a>
+        <a tabIndex={0} onClick={handleRemove} title="Remove">
+          <Icon name="delete" />
+        </a>
+      </div>
+    </form>
   );
 };
 

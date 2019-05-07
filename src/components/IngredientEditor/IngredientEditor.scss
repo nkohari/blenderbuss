@@ -1,0 +1,36 @@
+.ingredient-editor {
+  display: flex;
+  width: 100%;
+
+  input {
+    padding: 4px;
+    margin-right: 10px;
+    font-size: 1em;
+
+    &[name='quantity'] {
+      width: 50px;
+    }
+
+    &[name='unit'] {
+      width: 80px;
+    }
+
+    &[name='name'] {
+      flex: 1;
+    }
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    & > * {
+      cursor: pointer;
+      margin-right: 10px;
+      :last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
